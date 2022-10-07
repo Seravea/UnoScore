@@ -31,8 +31,10 @@ class Card: ObservableObject, Identifiable {
 }
 
 class ViewModel: ObservableObject {
-    @Published var users: [User] = []
+    @Published var users: [User] = [User.romain, User.mathilde]
     @Published var cards: [Card] = Card.cardsArray
+    
+    @Published var gameIsFinished = false
     
     func removeScoreIsOK(editValue: Int, userIndex: Int) -> Bool {
         

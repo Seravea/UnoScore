@@ -32,42 +32,131 @@ struct CardCellView: View {
                 
                 
                 
-            Ellipse()
-                .frame(width: 75, height: 115)
-                .foregroundColor(Color("monRouge"))
-                .rotationEffect(.degrees(41))
-            if card.name.count <= 2 {
+            
+            if card.name.count <= 1 {
+                Ellipse()
+                    .frame(width: 75, height: 136)
+                    .foregroundColor(Color("rougeUno"))
+                    .rotationEffect(.degrees(38))
+                    .overlay(content: {
+                        Ellipse()
+                            .strokeBorder(lineWidth: 4)
+                            .frame(width: 75, height: 136)
+                            .foregroundColor(.white)
+                            
+                            .rotationEffect(.degrees(38))
+                            
+                    })
                 Text(card.name)
-                    .font(.system(size: 50))
+                    .shadow(color: .black ,radius: 0.1, x: 1, y: 1.5)
+                    .font(.custom("CabinCondensed-Bold", size: 50))
                     .bold()
                     .foregroundColor(Color("monJaune"))
+                   // .rotationEffect(.degrees(2))
             }else if card.name == "ChangeColor" {
-                Text("Couleur")
-                    .bold()
-                    .foregroundColor(Color("monJaune"))
+                Image("changeColorImage")
+                    
+                    .resizable()
+                    .rotationEffect(.degrees(7))
+                    .frame(width: 94 , height: 120)
+                    .overlay(content: {
+                        Ellipse()
+                            .strokeBorder(lineWidth: 4)
+                            .frame(width: 75, height: 136)
+                            .foregroundColor(.white)
+                            
+                            .rotationEffect(.degrees(38))
+                            
+                    })
+                    
+                    
             } else if card.name == "tourChange" {
-                Image(systemName: "arrow.triangle.2.circlepath")
-                    .foregroundColor(Color("monJaune"))
-                    .font(.system(size: 50))
-                    .bold()
+                Ellipse()
+                    .frame(width: 75, height: 136)
+                    .foregroundColor(.white)
+                    .rotationEffect(.degrees(38))
+                    .overlay(content: {
+                        Ellipse()
+                            .strokeBorder(lineWidth: 4)
+                            .frame(width: 75, height: 136)
+                            .foregroundColor(.white)
+                            
+                            .rotationEffect(.degrees(38))
+                            
+                    })
+                TourChangeCardView()
+                    
+                    
             } else if card.name == "tourPass" {
+                Ellipse()
+                    .frame(width: 75, height: 136)
+                    .foregroundColor(.white)
+                    .rotationEffect(.degrees(38))
+                    .overlay(content: {
+                        Ellipse()
+                            .strokeBorder(lineWidth: 4)
+                            .frame(width: 75, height: 136)
+                            .foregroundColor(.white)
+                            
+                            .rotationEffect(.degrees(38))
+                            
+                    })
                 Image(systemName: "nosign")
-                    .rotationEffect(.degrees(120))
+                    .shadow(color: .black ,radius: 0.1, x: -2, y: 1)
+                    .rotationEffect(.degrees(100))
                     .foregroundColor(Color("monJaune"))
-                    .font(.system(size: 50))
+                    .font(.system(size: 55))
                     .bold()
                     
+                    
+            } else if card.name == "+4" {
+                Ellipse()
+                    .frame(width: 75, height: 136)
+                    .foregroundColor(.white)
+                    .rotationEffect(.degrees(38))
+                    .overlay(content: {
+                        Ellipse()
+                            .strokeBorder(lineWidth: 4)
+                            .frame(width: 75, height: 136)
+                            .foregroundColor(.white)
+                            
+                            .rotationEffect(.degrees(38))
+                            
+                    })
+                PlusFourCardDraw()
+                
+                
+            } else if card.name == "+2" {
+                Ellipse()
+                    .frame(width: 75, height: 136)
+                    .foregroundColor(.white)
+                    .rotationEffect(.degrees(38))
+                    .overlay(content: {
+                        Ellipse()
+                            .strokeBorder(lineWidth: 4)
+                            .frame(width: 75, height: 136)
+                            .foregroundColor(.white)
+                            
+                            .rotationEffect(.degrees(38))
+                            
+                    })
+                PlusTwoCardView()
             }
+            
             
                 
             HStack {
                 VStack {
+                //Text("nbre \(number)")
                     Text("\(number) carte\(number > 1 ? "s" : " ")")
                         .foregroundColor(.red)
-                        .padding(5)
+                        .padding(6)
                         .animation(.default, value: number)
+                        .font(.custom("CabinCondensed-Bold", size: 17))
+                        
                     Spacer()
                 }
+                .padding(.vertical, -5)
                 Spacer()
             }
             .frame(width: 100, height: 150)
@@ -77,8 +166,9 @@ struct CardCellView: View {
                     Button {
                         if number > 0 {
                             number -= 1
+                            card.totalPoint -= card.points
                         }
-                        card.totalPoint -= card.points
+                        
                         
                         print(" \(card.totalPoint)")
                            print("number: \(number)")
@@ -87,13 +177,13 @@ struct CardCellView: View {
                     }label: {
                         ZStack {
                             Circle()
-                                .frame(width: 20, height: 20)
+                                .frame(width: 21, height: 21)
                             Image(systemName: "minus")
                                 .foregroundColor(.white)
                         }
                     }
                         .foregroundColor(.red)
-                        .padding(5)
+                        .padding(-2.5)
                 }
                 Spacer()
             }
@@ -107,17 +197,19 @@ struct CardCellView: View {
                     Button {
                         number += 1
                         card.totalPoint += card.points
+                        print(" \(card.totalPoint)")
+                           print("number: \(number)")
 
                     }label: {
                         ZStack {
                             Circle()
-                                .frame(width: 20, height: 20)
+                                .frame(width: 21, height: 21)
                                 .foregroundColor(.green)
                             Image(systemName: "plus")
                                 .foregroundColor(.white)
                         }
                     }
-                    .padding(5)
+                    .padding(-2.5)
                         
                 }
                 
@@ -134,6 +226,6 @@ struct CardCellView: View {
 
 struct CardCellView_Previews: PreviewProvider {
     static var previews: some View {
-        CardCellView(card: Card.plusFour, viewModel: ViewModel(), number: 0)
+        CardCellView(card: Card.tourPass, viewModel: ViewModel(), number: 0)
     }
 }

@@ -12,6 +12,7 @@ struct UnoScoreApp: App {
     var body: some Scene {
         WindowGroup {
             StartGameView()
+                .accentColor(Color("monVert"))
         }
     }
 }

@@ -17,6 +17,7 @@ struct ModifyScoreView: View {
                 GridItem(.flexible()),
                 GridItem(.flexible())
         ]
+    @Binding var endGameAlert: Bool
     
     @Environment(\.presentationMode) private var presentationMode
     
@@ -62,6 +63,9 @@ struct ModifyScoreView: View {
                 }
             
             viewModel.users[userIndex!].score += score
+            if viewModel.users[userIndex!].score >= 500 {
+                endGameAlert = true
+            }
         }
         .toolbar {
             ToolbarItem {
@@ -82,7 +86,7 @@ struct ModifyScoreView: View {
 struct ModifyScoreView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ModifyScoreView(viewModel: ViewModel(), userIndex: 0, editValue: nil)
+            ModifyScoreView(viewModel: ViewModel(), userIndex: 0, endGameAlert: .constant(false), editValue: nil)
         }
     }
 }

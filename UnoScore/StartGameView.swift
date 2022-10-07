@@ -65,12 +65,14 @@ struct StartGameView: View {
                         HStack {
                             
                             Text(user.name)
+                                .font(.custom("CabinCondensed-Bold", size: 20))
                         }
                     } .onDelete(perform: delete)
                     
                     
                 }header: {
                         Text("Ajouter des joueurs")
+                        .font(.custom("CabinCondensed-Bold", size: 15))
                         
                 }
                 if viewModel.users.count >= 2 {
@@ -79,9 +81,12 @@ struct StartGameView: View {
                             ScoreView(viewModel: viewModel)
                         }label: {
                             Text("Lancer la partie")
+                                .foregroundColor(.white)
+                                .font(.custom("CabinCondensed-Bold", size: 25))
+                                .bold()
                              
                         }
-                        .listRowBackground(Color.green)
+                        .listRowBackground(Color("monVert"))
                         .animation(.default)
                     }
                     
@@ -91,6 +96,7 @@ struct StartGameView: View {
                     withAnimation {
                         Text("* Minimum 2 joueurs")
                             .animation(.default)
+                            .font(.custom("CabinCondensed-Bold", size: 17))
                     }
                     
                 }
@@ -103,6 +109,7 @@ struct StartGameView: View {
                         }label: {
                             Text("Nouvelle partie")
                                 .animation(.default)
+                                .font(.custom("CabinCondensed-Bold", size: 20))
                         }
                     }
 

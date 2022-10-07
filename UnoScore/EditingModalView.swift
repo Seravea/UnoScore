@@ -25,63 +25,87 @@ struct EditingModalView: View {
     @Binding var isShowingModal: Bool
     var body: some View {
         
-        VStack {
-            Text(viewModel.users[userIndex].name)
-                .font(.largeTitle)
-                .bold()
-                .padding()
-            
-            Spacer()
-            
-            if viewModel.removeScoreIsOK(editValue: editValue, userIndex: userIndex) {
-                VStack {
-                    Text("Vous ne pouvez pas enlever \(editValue) points")
-                    Text("\(viewModel.users[userIndex].name) n'a que \(viewModel.users[userIndex].score) points")
+        NavigationView {
+            VStack {
+                HStack {
+                    Text(viewModel.users[userIndex].name)
+                        .font(.largeTitle)
+                        .bold()
+                    .padding()
+                    Spacer()
                 }
-                .padding()
                 
+                Spacer()
                 
-            }
-            HStack {
-                TextField("Points à enlever", value: $editValue, formatter: formatter)
-                    .keyboardType(.numberPad)
-                    .textFieldStyle(.roundedBorder)
-                
-                Button {
-                    isShowingAlert.toggle()
-                
-                } label: {
-                    Image(systemName: "rectangle.and.pencil.and.ellipsis")
-                }
-                .disabled(viewModel.removeScoreIsOK(editValue: editValue, userIndex: userIndex))
-               
-                
-                .alert("Voulez- vous enlever \(editValue) points à \(viewModel.users[userIndex].name)", isPresented: $isShowingAlert) {
-                            Button("Non !!", role: .cancel) { }
-                    Button {
-                        viewModel.users[0].score -= editValue
-                        isShowingModal.toggle()
-                    }label: {
-                        Text("Oui !!")
+                if viewModel.removeScoreIsOK(editValue: editValue, userIndex: userIndex) {
+                    VStack {
+                        Text("Vous ne pouvez pas enlever \(editValue) points")
+                        Text("\(viewModel.users[userIndex].name) n'a que \(viewModel.users[userIndex].score) points")
                     }
+                    .padding()
+                    .font(.custom("CabinCondensed-Bold", size: 20))
                     
+                    
+                } else {
+                    Text("      Easter          ")
+                        .foregroundColor(.white)
+                    Text("       Egg        ")
+                        .foregroundColor(.white)
+                }
+                HStack {
+                    TextField("Points à enlever", value: $editValue, formatter: formatter)
+                        .keyboardType(.numberPad)
+                        .textFieldStyle(.roundedBorder)
+                    
+                    Button {
+                        isShowingAlert.toggle()
+                    
+                    } label: {
+                        Text("Edit")
+                            .font(.custom("CabinCondensed-Bold", size: 20))
+                    }
+                    .disabled(viewModel.removeScoreIsOK(editValue: editValue, userIndex: userIndex))
+                    .buttonStyle(.bordered)
+                   
+                    
+                    .alert("Voulez- vous enlever \(editValue) points à \(viewModel.users[userIndex].name)", isPresented: $isShowingAlert) {
+                                Button("Non !!", role: .cancel) { }
+                        Button {
+                            viewModel.users[userIndex].score -= editValue
+                            isShowingModal.toggle()
+                        }label: {
+                            Text("Oui !!")
                         }
+                        
+                        
+                            }
+                }
+                .padding()
+                
+                Spacer()
+                
             }
-            .padding()
-            
-            Spacer()
-            
+            .navigationTitle("Retirer des points à")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        isShowingModal = false
+                    }label: {
+                        Text("Annuler")
+                            .font(.custom("CabinCondensed-Bold", size: 18))
+                    }                }
+            }
         }
-        .navigationTitle("Retirer des points à")
+        .accentColor(Color("monVert"))
         
     }
 }
 
 struct EditingModalView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView{
+       
             EditingModalView(viewModel: ViewModel(), userIndex: 0, isShowingModal: .constant(true))
-        }
+        
         
     }
 }
