@@ -34,8 +34,7 @@ struct TourChangeCardView: View {
                 }
                 
                 .rotationEffect(.degrees(65))
-                .font(.system(size: 40))
-                .bold()
+                .font(.system(size: 40).weight(.bold))
                 Spacer()
                 Spacer()
                 Spacer()

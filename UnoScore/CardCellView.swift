@@ -49,8 +49,8 @@ struct CardCellView: View {
                     })
                 Text(card.name)
                     .shadow(color: .black ,radius: 0.1, x: 1, y: 1.5)
-                    .font(.custom("CabinCondensed-Bold", size: 50))
-                    .bold()
+                    .font(.custom("CabinCondensed-Bold", size: 60))
+                    
                     .foregroundColor(Color("monJaune"))
                    // .rotationEffect(.degrees(2))
             }else if card.name == "ChangeColor" {
@@ -105,8 +105,8 @@ struct CardCellView: View {
                     .shadow(color: .black ,radius: 0.1, x: -2, y: 1)
                     .rotationEffect(.degrees(100))
                     .foregroundColor(Color("monJaune"))
-                    .font(.system(size: 55))
-                    .bold()
+                    .font(.system(size: 55).weight(.bold))
+                    
                     
                     
             } else if card.name == "+4" {
@@ -226,6 +226,6 @@ struct CardCellView: View {
 
 struct CardCellView_Previews: PreviewProvider {
     static var previews: some View {
-        CardCellView(card: Card.tourPass, viewModel: ViewModel(), number: 0)
+        CardCellView(card: Card.one, viewModel: ViewModel(), number: 0)
     }
 }
