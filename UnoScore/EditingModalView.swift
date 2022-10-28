@@ -10,7 +10,7 @@ import SwiftUI
 struct EditingModalView: View {
     var viewModel: ViewModel
     var userIndex: Int
-    
+    @Binding var doneEditButton: Bool
     
     
     @State var editValue: Int = 0
@@ -73,6 +73,7 @@ struct EditingModalView: View {
                         Button {
                             viewModel.users[userIndex].score -= editValue
                             isShowingModal.toggle()
+                            doneEditButton.toggle()
                         }label: {
                             Text("Oui !!")
                         }
@@ -104,7 +105,7 @@ struct EditingModalView: View {
 struct EditingModalView_Previews: PreviewProvider {
     static var previews: some View {
        
-            EditingModalView(viewModel: ViewModel(), userIndex: 0, isShowingModal: .constant(true))
+        EditingModalView(viewModel: ViewModel(), userIndex: 0, doneEditButton: .constant(false), isShowingModal: .constant(true))
         
         
     }

@@ -12,7 +12,6 @@
 		14183C5928E884F800B23AB3 /* IBMPlexSansCondensed-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14183C5828E884F800B23AB3 /* IBMPlexSansCondensed-Italic.ttf */; };
 		14183C5B28E8863500B23AB3 /* IBMPlexSansCondensed-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14183C5A28E8863500B23AB3 /* IBMPlexSansCondensed-SemiBoldItalic.ttf */; };
 		14183C5D28E886CD00B23AB3 /* StintUltraCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14183C5C28E886CD00B23AB3 /* StintUltraCondensed-Regular.ttf */; };
-		14183C6128EC45F300B23AB3 /* CabinCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14183C6028EC45F300B23AB3 /* CabinCondensed-Bold.ttf */; };
 		14183C6328EC489800B23AB3 /* PlusFourCardDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14183C6228EC489800B23AB3 /* PlusFourCardDraw.swift */; };
 		14183C6928EC69C100B23AB3 /* PlusTwoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14183C6828EC69C100B23AB3 /* PlusTwoCardView.swift */; };
 		14183C6B28ED8AD600B23AB3 /* TourChangeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14183C6A28ED8AD600B23AB3 /* TourChangeCardView.swift */; };
@@ -26,6 +25,13 @@
 		1432D29728AB8B3600285E2E /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1432D29628AB8B3600285E2E /* ScoreView.swift */; };
 		1432D29928ACDC5900285E2E /* ModifyScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1432D29828ACDC5900285E2E /* ModifyScoreView.swift */; };
 		14AF29EA28C211B3000BCFF7 /* CardCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AF29E928C211B3000BCFF7 /* CardCellView.swift */; };
+		14D4B2C528F58EC50042B267 /* SPConfetti in Frameworks */ = {isa = PBXBuildFile; productRef = 14D4B2C428F58EC50042B267 /* SPConfetti */; };
+		14D4B2CB28F97CBE0042B267 /* SwiftConfettiView in Frameworks */ = {isa = PBXBuildFile; productRef = 14D4B2CA28F97CBE0042B267 /* SwiftConfettiView */; };
+		14D4B2E72907CE390042B267 /* cabin-condensed.bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14D4B2E62907CE390042B267 /* cabin-condensed.bold.ttf */; };
+		14D4B2E82907D0290042B267 /* CabinCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14183C6028EC45F300B23AB3 /* CabinCondensed-Bold.ttf */; };
+		14D4B2EA290935C80042B267 /* PodiumModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4B2E9290935C80042B267 /* PodiumModalView.swift */; };
+		14D4B306290A67A10042B267 /* WebUnoRulesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4B305290A67A10042B267 /* WebUnoRulesView.swift */; };
+		14D4B308290A69970042B267 /* RulesModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4B307290A69970042B267 /* RulesModalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +55,10 @@
 		1432D29628AB8B3600285E2E /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		1432D29828ACDC5900285E2E /* ModifyScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyScoreView.swift; sourceTree = "<group>"; };
 		14AF29E928C211B3000BCFF7 /* CardCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCellView.swift; sourceTree = "<group>"; };
+		14D4B2E62907CE390042B267 /* cabin-condensed.bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "cabin-condensed.bold.ttf"; sourceTree = "<group>"; };
+		14D4B2E9290935C80042B267 /* PodiumModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodiumModalView.swift; sourceTree = "<group>"; };
+		14D4B305290A67A10042B267 /* WebUnoRulesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebUnoRulesView.swift; sourceTree = "<group>"; };
+		14D4B307290A69970042B267 /* RulesModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesModalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +66,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14D4B2C528F58EC50042B267 /* SPConfetti in Frameworks */,
+				14D4B2CB28F97CBE0042B267 /* SwiftConfettiView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +77,7 @@
 		14183C5728E8849F00B23AB3 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				14D4B2E62907CE390042B267 /* cabin-condensed.bold.ttf */,
 				14183C6028EC45F300B23AB3 /* CabinCondensed-Bold.ttf */,
 				14183C5C28E886CD00B23AB3 /* StintUltraCondensed-Regular.ttf */,
 				14183C5A28E8863500B23AB3 /* IBMPlexSansCondensed-SemiBoldItalic.ttf */,
@@ -99,12 +112,15 @@
 				1432D29428AB841F00285E2E /* StartGameView.swift */,
 				1432D29628AB8B3600285E2E /* ScoreView.swift */,
 				1432D29828ACDC5900285E2E /* ModifyScoreView.swift */,
+				14D4B2E9290935C80042B267 /* PodiumModalView.swift */,
 				14183C1B28DC5EDF00B23AB3 /* EditingModalView.swift */,
+				14D4B307290A69970042B267 /* RulesModalView.swift */,
 				14AF29E928C211B3000BCFF7 /* CardCellView.swift */,
 				14183C6828EC69C100B23AB3 /* PlusTwoCardView.swift */,
 				14183C6228EC489800B23AB3 /* PlusFourCardDraw.swift */,
 				14183C6A28ED8AD600B23AB3 /* TourChangeCardView.swift */,
 				14183C3B28E5B3A100B23AB3 /* TestFontSwiftui.swift */,
+				14D4B305290A67A10042B267 /* WebUnoRulesView.swift */,
 				1432D28428AB7A4D00285E2E /* Assets.xcassets */,
 				14183C5728E8849F00B23AB3 /* Fonts */,
 				1432D28628AB7A4D00285E2E /* Preview Content */,
@@ -136,6 +152,10 @@
 			dependencies = (
 			);
 			name = UnoScore;
+			packageProductDependencies = (
+				14D4B2C428F58EC50042B267 /* SPConfetti */,
+				14D4B2CA28F97CBE0042B267 /* SwiftConfettiView */,
+			);
 			productName = UnoScore;
 			productReference = 1432D27D28AB7A4B00285E2E /* UnoScore.app */;
 			productType = "com.apple.product-type.application";
@@ -164,6 +184,10 @@
 				Base,
 			);
 			mainGroup = 1432D27428AB7A4B00285E2E;
+			packageReferences = (
+				14D4B2C328F58EC50042B267 /* XCRemoteSwiftPackageReference "SPConfetti" */,
+				14D4B2C928F97CBE0042B267 /* XCRemoteSwiftPackageReference "SwiftConfettiView" */,
+			);
 			productRefGroup = 1432D27E28AB7A4B00285E2E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -179,10 +203,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				14183C5D28E886CD00B23AB3 /* StintUltraCondensed-Regular.ttf in Resources */,
-				14183C6128EC45F300B23AB3 /* CabinCondensed-Bold.ttf in Resources */,
 				1432D28828AB7A4D00285E2E /* Preview Assets.xcassets in Resources */,
 				1432D28528AB7A4D00285E2E /* Assets.xcassets in Resources */,
 				14183C5B28E8863500B23AB3 /* IBMPlexSansCondensed-SemiBoldItalic.ttf in Resources */,
+				14D4B2E72907CE390042B267 /* cabin-condensed.bold.ttf in Resources */,
+				14D4B2E82907D0290042B267 /* CabinCondensed-Bold.ttf in Resources */,
 				14183C5928E884F800B23AB3 /* IBMPlexSansCondensed-Italic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,6 +221,7 @@
 			files = (
 				14183C6B28ED8AD600B23AB3 /* TourChangeCardView.swift in Sources */,
 				1432D29128AB7AE800285E2E /* DataViewModel.swift in Sources */,
+				14D4B308290A69970042B267 /* RulesModalView.swift in Sources */,
 				1432D29928ACDC5900285E2E /* ModifyScoreView.swift in Sources */,
 				14AF29EA28C211B3000BCFF7 /* CardCellView.swift in Sources */,
 				1432D29528AB841F00285E2E /* StartGameView.swift in Sources */,
@@ -204,6 +230,8 @@
 				14183C6928EC69C100B23AB3 /* PlusTwoCardView.swift in Sources */,
 				1432D29728AB8B3600285E2E /* ScoreView.swift in Sources */,
 				14183C1C28DC5EDF00B23AB3 /* EditingModalView.swift in Sources */,
+				14D4B2EA290935C80042B267 /* PodiumModalView.swift in Sources */,
+				14D4B306290A67A10042B267 /* WebUnoRulesView.swift in Sources */,
 				14183C6328EC489800B23AB3 /* PlusFourCardDraw.swift in Sources */,
 				1432D28128AB7A4B00285E2E /* UnoScoreApp.swift in Sources */,
 				1432D28F28AB7A7000285E2E /* DataModel.swift in Sources */,
@@ -413,6 +441,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		14D4B2C328F58EC50042B267 /* XCRemoteSwiftPackageReference "SPConfetti" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ivanvorobei/SPConfetti";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		14D4B2C928F97CBE0042B267 /* XCRemoteSwiftPackageReference "SwiftConfettiView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/theoriginalbit/SwiftConfettiView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		14D4B2C428F58EC50042B267 /* SPConfetti */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 14D4B2C328F58EC50042B267 /* XCRemoteSwiftPackageReference "SPConfetti" */;
+			productName = SPConfetti;
+		};
+		14D4B2CA28F97CBE0042B267 /* SwiftConfettiView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 14D4B2C928F97CBE0042B267 /* XCRemoteSwiftPackageReference "SwiftConfettiView" */;
+			productName = SwiftConfettiView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1432D27528AB7A4B00285E2E /* Project object */;
 }

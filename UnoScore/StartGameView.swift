@@ -9,11 +9,16 @@ import SwiftUI
 
 struct StartGameView: View {
     @ObservedObject var viewModel = ViewModel()
+    
+    @State var isShowingRulesSheet = false
     @State var isShowingSheet = false
     @State var showingGame = false
     @State var name = ""
+    @FocusState private var nameIsFocused: Bool
+    
     var nameIsnNotEmpty: Bool {
         if name.isEmpty {
+            
             return false
         }else {
             return true
@@ -28,6 +33,10 @@ struct StartGameView: View {
     }
     
     @State var isShowingAlert = false
+    
+    @AppStorage("USERS") var savedUsers: Data = Data()
+    
+    
     var body: some View {
         NavigationView {
             List {
@@ -37,12 +46,13 @@ struct StartGameView: View {
                             TextField("Pseudo", text: $name)
                                 .textFieldStyle(.roundedBorder)
                                 .padding()
+                                .focused($nameIsFocused)
                         }
                         .transition(.move(edge: .leading))
                         .animation(.easeIn)
                         
                         
-                        if nameIsnNotEmpty {
+                        
                             
                                 Button {
                                     withAnimation {
@@ -51,14 +61,13 @@ struct StartGameView: View {
                                     }
                                     
                                 }label: {
-                                    Image(systemName: "plus.circle")
+                                    Image(systemName: "arrow.up.circle")
                                         .font(.largeTitle)
                                 }
+                                .buttonStyle(.borderless)
+                                .disabled(!nameIsnNotEmpty)
                                 
-                                .transition(.move(edge: .trailing))
-                                .animation(.easeIn)
-                            
-                        }
+                        
                         
                     }
                     ForEach(viewModel.users) { user in
@@ -81,12 +90,15 @@ struct StartGameView: View {
                             ScoreView(viewModel: viewModel)
                         }label: {
                             Text("Lancer la partie")
-                                .foregroundColor(.white)
-                                .font(.custom("CabinCondensed-Bold", size: 25))
                                 .bold()
+                                .foregroundColor(Color("monVert"))
+                                .font(.custom("CabinCondensed-Bold", size: 25, relativeTo: .body))
+                                
+                                //.font(.system(size: 25))
+                                
                              
                         }
-                        .listRowBackground(Color("monVert"))
+                        .listRowBackground(Color("monJaune"))
                         .animation(.default)
                     }
                     
@@ -97,30 +109,64 @@ struct StartGameView: View {
                         Text("* Minimum 2 joueurs")
                             .animation(.default)
                             .font(.custom("CabinCondensed-Bold", size: 17))
+                            .listRowBackground(Color("rougeUno"))
                     }
                     
                 }
-                    
-                if (viewModel.users.count >= 2) && (viewModel.users[0].score > 0 || viewModel.users[1].score > 0) {
-                    withAnimation {
-                        Button {
-                            isShowingAlert.toggle()
-                            
-                        }label: {
-                            Text("Nouvelle partie")
-                                .animation(.default)
-                                .font(.custom("CabinCondensed-Bold", size: 20))
+                Section {
+                    if viewModel.users.isEmpty == false {
+                        withAnimation {
+                            Button {
+                                isShowingAlert.toggle()
+                                
+                            }label: {
+                                HStack {
+                                    Spacer()
+                                    Text("Supprimer la partie")
+                                        .animation(.default)
+                                    .font(.custom("CabinCondensed-Bold", size: 20))
+                                    .foregroundColor(Color("monJaune"))
+                                    
+                                    Spacer()
+                                }
+                            }
+                            .listRowBackground(Color("rougeUno"))
                         }
-                    }
 
-                    
-                    
+                        
+                        
+                    }
                 }
                 
+              
+                    Section {
+                        HStack {
+                            Spacer()
+                            Button{
+                                isShowingRulesSheet = true
+                            }label: {
+                                HStack{
+                                    Image(systemName: "book.circle")
+                                        .accentColor(Color("monVert"))
+                                        .font(.title3)
+                                    Text("Voir les règles du jeux")
+                                        .foregroundColor(Color("monVert"))
+                                        .font(.custom("CabinCondensed-Bold", size: 18))
+                                }
+                        }
+                            Spacer()
+                        }
+                    }
+                    .listRowBackground(Color("monJaune"))
+                    .sheet(isPresented: $isShowingRulesSheet) {
+                        RulesModalView(isModalOn: $isShowingRulesSheet)
+                    }
+                
+                
             }
-            .alert("Voulez-vous supprimer cette partie en cours", isPresented: $isShowingAlert, actions: {
-                Button("Non") { }
-                Button("Oui") {
+            .alert("Voulez-vous supprimer la partie en cours", isPresented: $isShowingAlert, actions: {
+                Button("Non", role: .cancel) { }
+                Button("Oui", role: .destructive) {
                     withAnimation {
                         viewModel.users.removeAll()
                     }
@@ -133,7 +179,20 @@ struct StartGameView: View {
                     EditButton()
                         .disabled(viewModel.users.isEmpty)
                 }
+//                ToolbarItem(placement: .keyboard) {
+//
+//
+//                        Button{
+//                            nameIsFocused = false
+//                        }label: {
+//                            Text("Valider")
+//                        }
+//                    .accentColor(Color("monVert"))
+//
+//
+//                }
             }
+            
         }
         
     }

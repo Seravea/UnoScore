@@ -144,22 +144,23 @@ struct CardCellView: View {
             }
             
             
-                
-            HStack {
-                VStack {
-                //Text("nbre \(number)")
-                    Text("\(number) carte\(number > 1 ? "s" : " ")")
-                        .foregroundColor(.red)
-                        .padding(6)
-                        .animation(.default, value: number)
-                        .font(.custom("CabinCondensed-Bold", size: 17))
+            if number > 0 {
+                HStack {
+                    VStack {
                         
+                        Text("\(number) carte\(number > 1 ? "s" : " ")")
+                            .foregroundColor(.red)
+                            .padding(6)
+                            .animation(.default, value: number)
+                            .font(.custom("CabinCondensed-Bold", size: 17))
+                        
+                        Spacer()
+                    }
+                    .padding(.vertical, -5)
                     Spacer()
                 }
-                .padding(.vertical, -5)
-                Spacer()
+                .frame(width: 100, height: 150)
             }
-            .frame(width: 100, height: 150)
             HStack {
                 VStack {
                     Spacer()

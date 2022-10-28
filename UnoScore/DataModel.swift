@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 
-struct User: Identifiable, Hashable {
+struct User: Identifiable, Hashable, Codable {
     let id = UUID()
     let name: String
     var score: Int = 0
@@ -44,4 +44,6 @@ extension Card {
 extension User {
     static let romain = User(name: "Romain")
     static let mathilde = User(name: "Mathilde")
+    static let test = User(name: "Test")
+    static let adeline = User(name: "Adeline")
 }

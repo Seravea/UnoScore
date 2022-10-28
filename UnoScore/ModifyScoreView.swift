@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ModifyScoreView: View {
-    
+    @State var backButtonAnimation = false
     @ObservedObject var viewModel: ViewModel
     @State var score: Int = 0
     var userIndex: Int?
@@ -17,7 +17,7 @@ struct ModifyScoreView: View {
                 GridItem(.flexible()),
                 GridItem(.flexible())
         ]
-    @Binding var endGameAlert: Bool
+    
     
     @Environment(\.presentationMode) private var presentationMode
     
@@ -28,7 +28,7 @@ struct ModifyScoreView: View {
             return formatter
         }()
     @State var editValue: Int?
-    @State var isShowingModal: Bool = false
+    
     
     var body: some View {
         VStack {
@@ -47,34 +47,43 @@ struct ModifyScoreView: View {
                     }
                 }
             }
-            .sheet(isPresented: $isShowingModal) {
-                EditingModalView(viewModel: viewModel, userIndex: userIndex!, isShowingModal: $isShowingModal)
-            }
-
-            
-            
             
         }
         .navigationTitle(viewModel.users[userIndex!].name)
-        
+        .navigationBarBackButtonHidden(true)
         .onDisappear{
                 for card in viewModel.cards {
                    score += card.totalPoint
+                    
                 }
             
             viewModel.users[userIndex!].score += score
-            if viewModel.users[userIndex!].score >= 500 {
-                endGameAlert = true
-            }
+            viewModel.sortedArrayByScore(users: viewModel.users)
+            
+        }
+        .onAppear {
+            backButtonAnimation.toggle()
         }
         .toolbar {
-            ToolbarItem {
+            
+            ToolbarItem(placement: .navigationBarLeading) {
                 Button {
-                    isShowingModal.toggle()
-                } label: {
-                    Text("Enlever des points")
+                    presentationMode.wrappedValue.dismiss()
+                }label: {
+                    
+                        HStack(spacing: 5) {
+                            Image(systemName: "chevron.left")
+                                .font(.body.bold())
+                            withAnimation {
+                            Text("Ajouter les points")
+                                .animation(.easeIn(duration: 2), value: backButtonAnimation)
+                            
+                        }
+                    }
+                        .padding(-8)
+                    
+                    
                 }
-                .disabled(viewModel.users[userIndex!].score == 0)
 
                 
             }
@@ -86,7 +95,7 @@ struct ModifyScoreView: View {
 struct ModifyScoreView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ModifyScoreView(viewModel: ViewModel(), userIndex: 0, endGameAlert: .constant(false), editValue: nil)
+            ModifyScoreView(viewModel: ViewModel(), userIndex: 0, editValue: nil)
         }
     }
 }
