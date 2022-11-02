@@ -11,6 +11,8 @@ import SPConfetti
 struct PodiumModalView: View {
     @ObservedObject var viewModel: ViewModel
     @State var onAppearConffetti = false
+    @State var isShowingAlert = false
+    @State var alertMessage: EndGame = .restartGame
     var body: some View {
         
         List {
@@ -21,8 +23,8 @@ struct PodiumModalView: View {
                         HStack {
                             
                             ZStack {
-                                Image(systemName: "star.fill")
-                                    .font(.system(size: 60))
+                                Image(systemName: "circle.fill")
+                                    .font(.system(size: 40))
                                     .foregroundColor(Color("monJaune").opacity(1 - Double(index) / 3.0))
                                 
                                 
@@ -30,7 +32,7 @@ struct PodiumModalView: View {
                                     .font(.custom("CabinCondensed-Bold", size: 30))
                                     .foregroundColor(Color("monRouge"))
                                     .font(.title)
-                                    .padding(.bottom, -8.0)
+                                  //  .padding(.bottom, -8.0)
                                     
                                     
                                 
@@ -56,6 +58,8 @@ struct PodiumModalView: View {
             
             Section {
                 Button {
+                    alertMessage = .restartGame
+                    isShowingAlert = true
                     
                 }label: {
                     HStack {
@@ -70,6 +74,8 @@ struct PodiumModalView: View {
             }
             Section {
                 Button{
+                    alertMessage = .newGame
+                    isShowingAlert = true
                     
                 }label: {
                     HStack{
@@ -84,13 +90,36 @@ struct PodiumModalView: View {
                 .buttonStyle(.borderless)
 
             }
+            .alert("Fin de partie", isPresented: $isShowingAlert) {
+                Button(role: .cancel) {
+                }label: {
+                    Text("Non")
+                }
+                Button {
+                    if alertMessage == .restartGame {
+                        for index in 0...viewModel.users.count - 1 {
+                            viewModel.users[index].score = 0
+                        }
+                    } else if alertMessage == .newGame {
+                        viewModel.users.removeAll()
+                    }
+                    
+                }label: {
+                   Text("Oui")
+                }
+            } message: {
+                Text(alertMessage.rawValue)
+            }
+
+            }
                         
-                
-        }
         .navigationTitle("Classement")
+        }
+        
+        
         
     }
-}
+
 
 struct PodiumModalView_Previews: PreviewProvider {
     static var previews: some View {

@@ -31,7 +31,7 @@ class Card: ObservableObject, Identifiable {
 }
 
 class ViewModel: ObservableObject {
-    @Published var users: [User] = [User.adeline, User.romain]
+    @Published var users: [User] = [User.romain, User.mathilde]
     @Published var cards: [Card] = Card.cardsArray
     
     @Published var gameIsFinished = false

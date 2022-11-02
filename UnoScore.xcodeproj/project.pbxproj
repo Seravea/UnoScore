@@ -15,6 +15,7 @@
 		14183C6328EC489800B23AB3 /* PlusFourCardDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14183C6228EC489800B23AB3 /* PlusFourCardDraw.swift */; };
 		14183C6928EC69C100B23AB3 /* PlusTwoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14183C6828EC69C100B23AB3 /* PlusTwoCardView.swift */; };
 		14183C6B28ED8AD600B23AB3 /* TourChangeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14183C6A28ED8AD600B23AB3 /* TourChangeCardView.swift */; };
+		142C54142912BF190003033A /* TestSEarcheList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C54132912BF190003033A /* TestSEarcheList.swift */; };
 		1432D28128AB7A4B00285E2E /* UnoScoreApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1432D28028AB7A4B00285E2E /* UnoScoreApp.swift */; };
 		1432D28328AB7A4B00285E2E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1432D28228AB7A4B00285E2E /* ContentView.swift */; };
 		1432D28528AB7A4D00285E2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1432D28428AB7A4D00285E2E /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 		14183C6228EC489800B23AB3 /* PlusFourCardDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusFourCardDraw.swift; sourceTree = "<group>"; };
 		14183C6828EC69C100B23AB3 /* PlusTwoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusTwoCardView.swift; sourceTree = "<group>"; };
 		14183C6A28ED8AD600B23AB3 /* TourChangeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourChangeCardView.swift; sourceTree = "<group>"; };
+		142C54132912BF190003033A /* TestSEarcheList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSEarcheList.swift; sourceTree = "<group>"; };
 		1432D27D28AB7A4B00285E2E /* UnoScore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnoScore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1432D28028AB7A4B00285E2E /* UnoScoreApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnoScoreApp.swift; sourceTree = "<group>"; };
 		1432D28228AB7A4B00285E2E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				14183C3B28E5B3A100B23AB3 /* TestFontSwiftui.swift */,
 				14D4B305290A67A10042B267 /* WebUnoRulesView.swift */,
 				1432D28428AB7A4D00285E2E /* Assets.xcassets */,
+				142C54132912BF190003033A /* TestSEarcheList.swift */,
 				14183C5728E8849F00B23AB3 /* Fonts */,
 				1432D28628AB7A4D00285E2E /* Preview Content */,
 			);
@@ -227,6 +230,7 @@
 				1432D29528AB841F00285E2E /* StartGameView.swift in Sources */,
 				14183C3C28E5B3A100B23AB3 /* TestFontSwiftui.swift in Sources */,
 				1432D28328AB7A4B00285E2E /* ContentView.swift in Sources */,
+				142C54142912BF190003033A /* TestSEarcheList.swift in Sources */,
 				14183C6928EC69C100B23AB3 /* PlusTwoCardView.swift in Sources */,
 				1432D29728AB8B3600285E2E /* ScoreView.swift in Sources */,
 				14183C1C28DC5EDF00B23AB3 /* EditingModalView.swift in Sources */,

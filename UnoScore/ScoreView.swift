@@ -138,9 +138,10 @@ struct ScoreView: View {
                             .font(.custom("CabinCondensed-Bold", size: 20))
                     }
                     .confetti(isPresented: $showingEndGameAlert, animation: SPConfettiAnimation.fullWidthToDown, particles: [.circle], duration: 10)
-                    .sheet(isPresented: $showModalPodium) {
+                    .fullScreenCover(isPresented: $showModalPodium, content: {
                         PodiumModalView(viewModel: viewModel)
-                    }
+                    })
+                    
                     
 
             }

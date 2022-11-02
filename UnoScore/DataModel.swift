@@ -47,3 +47,9 @@ extension User {
     static let test = User(name: "Test")
     static let adeline = User(name: "Adeline")
 }
+
+
+enum EndGame: String {
+    case newGame = "Voulez-vous commencer une nouvelle partie ?"
+    case restartGame = "Voulez-vous rejouer la partie avec les mêmes joueurs ?"
+}
