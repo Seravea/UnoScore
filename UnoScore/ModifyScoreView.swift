@@ -14,7 +14,6 @@ struct ModifyScoreView: View {
     var userIndex: Int?
     let columns = [
                 GridItem(.flexible()),
-                GridItem(.flexible()),
                 GridItem(.flexible())
         ]
     
@@ -39,6 +38,7 @@ struct ModifyScoreView: View {
                         
                             
                                 CardCellView(card: card, viewModel: viewModel)
+                            
                                     .onAppear{
                                         card.setToZero(card: card)
                                     }

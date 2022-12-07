@@ -14,20 +14,7 @@ struct TestSEarcheList: View {
             
                 VStack {
                   
-                    List {
-                        HStack {
-                            TextEditor(text: $search)
-                               
-                            
-                            Button {
-                                
-                            }label: {
-                                Image(systemName: "arrow.up.circle")
-                                    .font(.largeTitle)
-                            }
-                            .buttonStyle(.borderless)
-                        }
-                    }
+                    Image("SixPDF")
                    
     //                List(1...10, id: \.self) { i in
     //                    ZStack {

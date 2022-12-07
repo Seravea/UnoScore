@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "changeColorImage.png",
+      "filename" : "carteDeux.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "changeColorImage@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "changeColorImage@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
