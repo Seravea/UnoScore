@@ -9,8 +9,9 @@ import Foundation
 import SwiftUI
 
 
+
 struct User: Identifiable, Hashable, Codable {
-    let id = UUID()
+    var id = UUID()
     let name: String
     var score: Int = 0
     
@@ -39,6 +40,12 @@ extension Card {
     static let tourPass = Card(name: "tourPass", points: 20)
     
     static let cardsArray = [one, two, three, four, five, six, seven, eight, nine, plusTwo, plusFour, changeColor, tourChange, tourPass]
+    
+    static func cardSetToZero(cards: [Card]) {
+        for card in cards {
+            card.totalPoint = 0
+        }
+    }
 }
 
 extension User {

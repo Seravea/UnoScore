@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RulesModalView: View {
     
-    @Binding var isModalOn: Bool
+    //@Binding var isModalOn: Bool
     var body: some View {
         NavigationView {
             List {
@@ -79,17 +79,10 @@ struct RulesModalView: View {
                 
                 
             }
+            
             .navigationTitle("Règlement")
             .navigationBarTitleDisplayMode(.large)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        isModalOn = false
-                    }label: {
-                        Text("Quitter")
-                    }
-                }
-        }
+            
         }
         .accentColor(Color("monVert"))
     }
@@ -98,7 +91,7 @@ struct RulesModalView: View {
 struct RulesModalView_Previews: PreviewProvider {
     static var previews: some View {
        
-            RulesModalView(isModalOn: .constant(true))
+            RulesModalView()
         
         
     }

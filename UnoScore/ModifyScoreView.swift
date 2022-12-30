@@ -11,7 +11,7 @@ struct ModifyScoreView: View {
     @State var backButtonAnimation = false
     @ObservedObject var viewModel: ViewModel
     @State var score: Int = 0
-    var userIndex: Int?
+    var userIndex: Int
     let columns = [
                 GridItem(.flexible()),
                 GridItem(.flexible())
@@ -39,25 +39,30 @@ struct ModifyScoreView: View {
                             
                                 CardCellView(card: card, viewModel: viewModel)
                             
-                                    .onAppear{
-                                        card.setToZero(card: card)
-                                    }
+                                    
+                                    
                             
                         
                     }
                 }
             }
+            .onAppear{
+                print(score)
+               
+                viewModel.cardSetToZero(cards: viewModel.cards)
+                score = 0
+                
+            }
             
         }
-        .navigationTitle(viewModel.users[userIndex!].name)
+        .navigationTitle(viewModel.users[userIndex].name)
         .navigationBarBackButtonHidden(true)
         .onDisappear{
                 for card in viewModel.cards {
                    score += card.totalPoint
                     
                 }
-            
-            viewModel.users[userIndex!].score += score
+            viewModel.users[userIndex].score += score
             viewModel.sortedArrayByScore(users: viewModel.users)
             
         }
@@ -80,10 +85,13 @@ struct ModifyScoreView: View {
                             
                         }
                     }
+                        
                         .padding(-8)
                     
                     
                 }
+                .frame(width: 155, height: 40)
+                
 
                 
             }

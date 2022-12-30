@@ -22,9 +22,9 @@ struct CardCellView: View {
                     .shadow(radius: 3)
 
             
-           // if number > 0 {
+            
             VStack {
-                
+               // if number > 0 {
                     
                     
                 HStack {
@@ -49,7 +49,8 @@ struct CardCellView: View {
                     
                 
                 Spacer()
-                //}
+               // }
+                Spacer()
                 HStack {
                     Spacer()
                     
@@ -69,7 +70,7 @@ struct CardCellView: View {
                         
                         Image(systemName: "minus.circle.fill")
                         
-                            .font(.system(size: 50))
+                            .font(.system(size: 40))
                             .symbolRenderingMode(.multicolor)
                         
                     }
@@ -87,15 +88,15 @@ struct CardCellView: View {
                     }label: {
                         
                         Image(systemName: "plus.circle.fill")
-                            .font(.system(size: 50))
+                            .font(.system(size: 40))
                             .symbolRenderingMode(.multicolor)
                     }
                     
                     Spacer()
                 }
-            }
-        }
-        .shadow(radius: 3)
+            } // end Vstack
+        }// end Zstack
+        .shadow(radius: 1)
         .onAppear {
             number = 0
         }

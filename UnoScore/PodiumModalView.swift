@@ -9,10 +9,12 @@ import SwiftUI
 import SPConfetti
 
 struct PodiumModalView: View {
+    
     @ObservedObject var viewModel: ViewModel
     @State var onAppearConffetti = false
     @State var isShowingAlert = false
     @State var alertMessage: EndGame = .restartGame
+    @Binding var isShowingPodiumView: Bool
     var body: some View {
         
         List {
@@ -43,7 +45,9 @@ struct PodiumModalView: View {
                                 .font(.custom("CabinCondensed-Bold", size: 25))
                             
                         }
+                        
                         .confetti(isPresented: $onAppearConffetti, animation: SPConfettiAnimation.fullWidthToDown, particles: [.circle], duration: 10)
+                        .confettiParticle(\.colors, [UIColor(Color("monVert")), UIColor(Color("rougeUno")), UIColor(Color("monJaune")), UIColor(Color("monBleu"))])
                         
                     }
                     .onAppear {
@@ -60,34 +64,38 @@ struct PodiumModalView: View {
                 Button {
                     alertMessage = .restartGame
                     isShowingAlert = true
+                    SPConfetti.stopAnimating()
                     
                 }label: {
-                    HStack {
-                        Spacer()
-                        Text("Rejouer la partie")
-                            .frame(width: 150)
-                            .font(.custom("CabinCondensed-Bold", size: 20))
-                        Spacer()
-                    }
+                    ButtonUnoStyle(buttonTitle: "Rejouer la partie", shadowColor: "darkYellow")
                 }
-                .buttonStyle(.borderless)
+                .buttonStyle(.borderedProminent)
+                .tint(Color("monJaune"))
+                .frame(maxWidth: 350)
+                .listRowBackground(Color.clear)
+                .shadow(radius: 1)
             }
             Section {
                 Button{
                     alertMessage = .newGame
                     isShowingAlert = true
-                    
+                    SPConfetti.stopAnimating()
                 }label: {
-                    HStack{
-                        Spacer()
-                        Text("Nouvelle partie")
-                            .frame(width: 150)
-                            .font(.custom("CabinCondensed-Bold", size: 20))
-                        Spacer()
-                    }
+//                    HStack{
+//                        Spacer()
+//                        Text("Nouvelle partie")
+//                            .frame(width: 150)
+//                            .font(.custom("CabinCondensed-Bold", size: 20))
+//                        Spacer()
+//                    }
+                    ButtonUnoStyle(buttonTitle: "Nouvelle partie", shadowColor: "darkYellow")
                     
                 }
-                .buttonStyle(.borderless)
+                .buttonStyle(.borderedProminent)
+                .tint(Color("monJaune"))
+                .frame(maxWidth: 350)
+                .listRowBackground(Color.clear)
+                .shadow(radius: 1)
 
             }
             .alert("Fin de partie", isPresented: $isShowingAlert) {
@@ -99,9 +107,11 @@ struct PodiumModalView: View {
                     if alertMessage == .restartGame {
                         for index in 0...viewModel.users.count - 1 {
                             viewModel.users[index].score = 0
+                            isShowingPodiumView = false
                         }
                     } else if alertMessage == .newGame {
                         viewModel.users.removeAll()
+                        isShowingPodiumView = false
                     }
                     
                 }label: {
@@ -124,7 +134,7 @@ struct PodiumModalView: View {
 struct PodiumModalView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            PodiumModalView(viewModel: ViewModel())
+            PodiumModalView(viewModel: ViewModel(), isShowingPodiumView: .constant(false))
         }
     }
 }

@@ -4,14 +4,18 @@
 //
 //  Created by Romain Poyard on 16/08/2022.
 //
+//
+//if viewModel.users.count < 1 {
+//    presentationMode.wrappedValue.dismiss()
+//}
 
 import SwiftUI
 import SPConfetti
 import SwiftConfettiView
 
 struct ScoreView: View {
+    @Environment(\.presentationMode) private var presentationMode
     @ObservedObject var viewModel: ViewModel
-    @State var isShowingSheetRules = false
     @State var index = 0
     @State var score = 0
     
@@ -24,7 +28,7 @@ struct ScoreView: View {
     
     @State var isShowingModal: Bool = false
     @State var isDecreaseScore = false
-    @State var showModalPodium = false
+    @Binding var showModalPodium: Bool
     var body: some View {
         List {
            // let users = viewModel.users.sorted(by: { $0.score < $1.score})
@@ -112,7 +116,9 @@ struct ScoreView: View {
                     
                     
                     Button {
+                       // showModalPodium = true
                         showingEndGameAlert = true
+                        print(showModalPodium)
                     }label: {
                         HStack {
                             Spacer()
@@ -123,10 +129,18 @@ struct ScoreView: View {
                     .listRowBackground(Color("monJaune"))
                     .font(.custom("CabinCondensed-Bold", size: 25))
                     
+                    
                 }
-                .alert("\(viewModel.users.first!.name) gagne cette partie!", isPresented: $showingEndGameAlert) {
+                
+                .alert("\(viewModel.users.first?.name ?? "Erreur") gagne cette partie!", isPresented: $showingEndGameAlert) {
                     Button{
-                            showModalPodium = true
+                        print(showModalPodium)
+                        showModalPodium = true
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            presentationMode.wrappedValue.dismiss()
+                        }
+                            
                         }label: {
                             Text("Oui")
                         }
@@ -138,47 +152,21 @@ struct ScoreView: View {
                             .font(.custom("CabinCondensed-Bold", size: 20))
                     }
                     .confetti(isPresented: $showingEndGameAlert, animation: SPConfettiAnimation.fullWidthToDown, particles: [.circle], duration: 10)
-                    .fullScreenCover(isPresented: $showModalPodium, content: {
-                        PodiumModalView(viewModel: viewModel)
-                    })
+                    .confettiParticle(\.colors, [UIColor(Color("monVert")),
+                                                 UIColor(Color("rougeUno")),
+                                                 UIColor(Color("monJaune")),
+                                                 UIColor(Color("monBleu"))])
                     
-                    
-
             }
-            Section {
-                Button{
-                    isShowingSheetRules = true
-                }label:{
-                    Label {
-                        Text("Règles du jeux")
-                    } icon: {
-                        Spacer()
-                        Image(systemName: "book.circle")
-                            .font(.title)
-                        
-                    }
-
-                  
-                }
-                        .foregroundColor(Color("monVert"))
-                        .font(.custom("CabinCondensed-Bold", size: 20))
-                        
-                
-               
-            }
-            .listRowBackground(Color("monJaune"))
-            .sheet(isPresented: $isShowingSheetRules) {
-                RulesModalView(isModalOn: $isShowingSheetRules)
-            }
+       
+           
         }
         .navigationTitle("Tableau de score")
+        
         .onAppear {
             isDecreaseScore = false
-            
-            for i in viewModel.users {
-                print(i.name)
-            }
         }
+        
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
@@ -190,25 +178,25 @@ struct ScoreView: View {
                 }label: {
                     
                     if isDecreaseScore == false {
-                        Text("Modifier score")
+                        HStack {
+                            Text("Modifier score")
+                                Image(systemName: "slider.horizontal.2.gobackward")
+                        }
                     } else {
                         Text("Done")
                     }
                 }
-                
-                
-                
-                
-                
             }
+                
         }
     }
 }
+    
 
 struct ScoreView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ScoreView(viewModel: ViewModel())
+            ScoreView(viewModel: ViewModel(), showModalPodium: .constant(true))
         }
     }
 }

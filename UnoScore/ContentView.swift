@@ -6,11 +6,37 @@
 //
 
 import SwiftUI
+import SPConfetti
 
 struct ContentView: View {
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor(Color("monGris"))
+        
+    }
+    
     var body: some View {
-        Text("Hello, worldHello")
-            .padding()
+        
+        TabView {
+            StartGameView()
+                .tabItem {
+                    Label {
+                        Text("Score")
+                    } icon: {
+                        Image(systemName: "menucard")
+                    }
+
+                }
+            RulesModalView()
+                .tabItem {
+                    Label("Règles", systemImage: "book")
+                }
+            
+            
+        }
+       
+        .accentColor(Color("monVert"))
+        
+       
     }
 }
 

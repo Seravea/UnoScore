@@ -31,7 +31,7 @@ class Card: ObservableObject, Identifiable {
 }
 
 class ViewModel: ObservableObject {
-    @Published var users: [User] = [User.romain, User.mathilde]
+    @Published var users: [User] = [User.mathilde, User.romain]
     @Published var cards: [Card] = Card.cardsArray
     
     @Published var gameIsFinished = false
@@ -43,6 +43,11 @@ class ViewModel: ObservableObject {
             }else {
                 return false
             }
+    }
+    func cardSetToZero(cards: [Card]) {
+        for card in cards {
+            card.totalPoint = 0
+        }
     }
     
     func sortedArrayByScore(users: [User]) {

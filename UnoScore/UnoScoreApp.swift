@@ -11,7 +11,7 @@ import SwiftUI
 struct UnoScoreApp: App {
     var body: some Scene {
         WindowGroup {
-            StartGameView()
+            ContentView()
                 .accentColor(Color("monVert"))
         }
     }
