@@ -11,7 +11,7 @@
 
 import SwiftUI
 import SPConfetti
-import SwiftConfettiView
+
 
 struct ScoreView: View {
     @Environment(\.presentationMode) private var presentationMode
