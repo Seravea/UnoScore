@@ -24,7 +24,7 @@ struct CardCellView: View {
             
             
             VStack {
-               // if number > 0 {
+                if number > 0 {
                     
                     
                 HStack {
@@ -49,7 +49,7 @@ struct CardCellView: View {
                     
                 
                 Spacer()
-               // }
+                }
                 Spacer()
                 HStack {
                     Spacer()
@@ -59,10 +59,6 @@ struct CardCellView: View {
                             number -= 1
                             card.totalPoint -= card.points
                         }
-                        
-                        
-                        print(" \(card.totalPoint)")
-                        print("number: \(number)")
                         
                         
                     }label: {
@@ -82,8 +78,7 @@ struct CardCellView: View {
                     Button {
                         number += 1
                         card.totalPoint += card.points
-                        print(" \(card.totalPoint)")
-                        print("number: \(number)")
+                       
                         
                     }label: {
                         

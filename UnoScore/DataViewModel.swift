@@ -20,18 +20,15 @@ class Card: ObservableObject, Identifiable {
         self.points = points
     }
     
-    func setToZero(card: Card) {
-        card.totalPoint = 0
-    }
+ 
     func addCardScore(card: Card){
         
     }
     
-    
 }
 
 class ViewModel: ObservableObject {
-    @Published var users: [User] = [User.mathilde, User.romain]
+    @Published var users: [User] = []
     @Published var cards: [Card] = Card.cardsArray
     
     @Published var gameIsFinished = false

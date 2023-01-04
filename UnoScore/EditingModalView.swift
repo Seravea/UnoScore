@@ -29,11 +29,17 @@ struct EditingModalView: View {
             VStack {
                 HStack {
                     Text(viewModel.users[userIndex].name)
-                        .font(.largeTitle)
                         .bold()
-                    .padding()
+                        .padding(.leading)
+                    
+                  Text("(\(viewModel.users[userIndex].score))")
+                        .bold()
+                        .foregroundColor(Color("monRouge").opacity(0.9))
                     Spacer()
                 }
+                .font(.largeTitle)
+                
+                
                 
                 Spacer()
                 
@@ -46,12 +52,7 @@ struct EditingModalView: View {
                     .font(.custom("CabinCondensed-Bold", size: 20))
                     
                     
-                } else {
-                    Text("      Easter          ")
-                        .foregroundColor(.white)
-                    Text("       Egg        ")
-                        .foregroundColor(.white)
-                }
+                } 
                 HStack {
                     TextField("Points à enlever", value: $editValue, formatter: formatter)
                         .keyboardType(.numberPad)

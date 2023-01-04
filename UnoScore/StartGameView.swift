@@ -168,7 +168,7 @@ struct StartGameView: View {
                 
                 .navigationTitle("Table de jeu")
                 .toolbar {
-                    ToolbarItem(id: "Éditer", placement: .navigationBarTrailing) {
+                    ToolbarItem(id: "Edit", placement: .navigationBarTrailing) {
                         EditButton()
                             .disabled(viewModel.users.isEmpty)
                     }

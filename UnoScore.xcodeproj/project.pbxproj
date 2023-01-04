@@ -8,14 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		14183C1C28DC5EDF00B23AB3 /* EditingModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14183C1B28DC5EDF00B23AB3 /* EditingModalView.swift */; };
-		14183C3C28E5B3A100B23AB3 /* TestFontSwiftui.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14183C3B28E5B3A100B23AB3 /* TestFontSwiftui.swift */; };
 		14183C5928E884F800B23AB3 /* IBMPlexSansCondensed-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14183C5828E884F800B23AB3 /* IBMPlexSansCondensed-Italic.ttf */; };
 		14183C5B28E8863500B23AB3 /* IBMPlexSansCondensed-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14183C5A28E8863500B23AB3 /* IBMPlexSansCondensed-SemiBoldItalic.ttf */; };
 		14183C5D28E886CD00B23AB3 /* StintUltraCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14183C5C28E886CD00B23AB3 /* StintUltraCondensed-Regular.ttf */; };
-		14183C6328EC489800B23AB3 /* PlusFourCardDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14183C6228EC489800B23AB3 /* PlusFourCardDraw.swift */; };
-		14183C6928EC69C100B23AB3 /* PlusTwoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14183C6828EC69C100B23AB3 /* PlusTwoCardView.swift */; };
-		14183C6B28ED8AD600B23AB3 /* TourChangeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14183C6A28ED8AD600B23AB3 /* TourChangeCardView.swift */; };
-		142C54142912BF190003033A /* TestSEarcheList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C54132912BF190003033A /* TestSEarcheList.swift */; };
 		1432D28128AB7A4B00285E2E /* UnoScoreApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1432D28028AB7A4B00285E2E /* UnoScoreApp.swift */; };
 		1432D28328AB7A4B00285E2E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1432D28228AB7A4B00285E2E /* ContentView.swift */; };
 		1432D28528AB7A4D00285E2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1432D28428AB7A4D00285E2E /* Assets.xcassets */; };
@@ -36,16 +31,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		140BC7AC295F2AF3003E8388 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		14183C1B28DC5EDF00B23AB3 /* EditingModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingModalView.swift; sourceTree = "<group>"; };
-		14183C3B28E5B3A100B23AB3 /* TestFontSwiftui.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFontSwiftui.swift; sourceTree = "<group>"; };
 		14183C5828E884F800B23AB3 /* IBMPlexSansCondensed-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSansCondensed-Italic.ttf"; sourceTree = "<group>"; };
 		14183C5A28E8863500B23AB3 /* IBMPlexSansCondensed-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSansCondensed-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		14183C5C28E886CD00B23AB3 /* StintUltraCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StintUltraCondensed-Regular.ttf"; sourceTree = "<group>"; };
 		14183C6028EC45F300B23AB3 /* CabinCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CabinCondensed-Bold.ttf"; sourceTree = "<group>"; };
-		14183C6228EC489800B23AB3 /* PlusFourCardDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusFourCardDraw.swift; sourceTree = "<group>"; };
-		14183C6828EC69C100B23AB3 /* PlusTwoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusTwoCardView.swift; sourceTree = "<group>"; };
-		14183C6A28ED8AD600B23AB3 /* TourChangeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourChangeCardView.swift; sourceTree = "<group>"; };
-		142C54132912BF190003033A /* TestSEarcheList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSEarcheList.swift; sourceTree = "<group>"; };
 		1432D27D28AB7A4B00285E2E /* UnoScore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnoScore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1432D28028AB7A4B00285E2E /* UnoScoreApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnoScoreApp.swift; sourceTree = "<group>"; };
 		1432D28228AB7A4B00285E2E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -107,6 +98,7 @@
 		1432D27F28AB7A4B00285E2E /* UnoScore */ = {
 			isa = PBXGroup;
 			children = (
+				140BC7AC295F2AF3003E8388 /* Info.plist */,
 				1432D28028AB7A4B00285E2E /* UnoScoreApp.swift */,
 				1432D28228AB7A4B00285E2E /* ContentView.swift */,
 				1432D28E28AB7A7000285E2E /* DataModel.swift */,
@@ -118,13 +110,8 @@
 				14183C1B28DC5EDF00B23AB3 /* EditingModalView.swift */,
 				14D4B307290A69970042B267 /* RulesModalView.swift */,
 				14AF29E928C211B3000BCFF7 /* CardCellView.swift */,
-				14183C6828EC69C100B23AB3 /* PlusTwoCardView.swift */,
-				14183C6228EC489800B23AB3 /* PlusFourCardDraw.swift */,
-				14183C6A28ED8AD600B23AB3 /* TourChangeCardView.swift */,
-				14183C3B28E5B3A100B23AB3 /* TestFontSwiftui.swift */,
 				14D4B305290A67A10042B267 /* WebUnoRulesView.swift */,
 				1432D28428AB7A4D00285E2E /* Assets.xcassets */,
-				142C54132912BF190003033A /* TestSEarcheList.swift */,
 				14183C5728E8849F00B23AB3 /* Fonts */,
 				1432D28628AB7A4D00285E2E /* Preview Content */,
 			);
@@ -222,21 +209,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14183C6B28ED8AD600B23AB3 /* TourChangeCardView.swift in Sources */,
 				1432D29128AB7AE800285E2E /* DataViewModel.swift in Sources */,
 				14D4B308290A69970042B267 /* RulesModalView.swift in Sources */,
 				1432D29928ACDC5900285E2E /* ModifyScoreView.swift in Sources */,
 				14AF29EA28C211B3000BCFF7 /* CardCellView.swift in Sources */,
 				1432D29528AB841F00285E2E /* StartGameView.swift in Sources */,
-				14183C3C28E5B3A100B23AB3 /* TestFontSwiftui.swift in Sources */,
 				1432D28328AB7A4B00285E2E /* ContentView.swift in Sources */,
-				142C54142912BF190003033A /* TestSEarcheList.swift in Sources */,
-				14183C6928EC69C100B23AB3 /* PlusTwoCardView.swift in Sources */,
 				1432D29728AB8B3600285E2E /* ScoreView.swift in Sources */,
 				14183C1C28DC5EDF00B23AB3 /* EditingModalView.swift in Sources */,
 				14D4B2EA290935C80042B267 /* PodiumModalView.swift in Sources */,
 				14D4B306290A67A10042B267 /* WebUnoRulesView.swift in Sources */,
-				14183C6328EC489800B23AB3 /* PlusFourCardDraw.swift in Sources */,
 				1432D28128AB7A4B00285E2E /* UnoScoreApp.swift in Sources */,
 				1432D28F28AB7A7000285E2E /* DataModel.swift in Sources */,
 			);
@@ -295,7 +277,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -349,7 +331,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -370,11 +352,12 @@
 				DEVELOPMENT_TEAM = 4FK7MWFCFZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = UnoScore/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -387,7 +370,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -402,11 +385,12 @@
 				DEVELOPMENT_TEAM = 4FK7MWFCFZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = UnoScore/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -419,7 +403,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

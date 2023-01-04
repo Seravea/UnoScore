@@ -47,7 +47,7 @@ struct ModifyScoreView: View {
                 }
             }
             .onAppear{
-                print(score)
+                
                
                 viewModel.cardSetToZero(cards: viewModel.cards)
                 score = 0

@@ -43,7 +43,9 @@ struct PodiumModalView: View {
                            
                             Text(user.name)
                                 .font(.custom("CabinCondensed-Bold", size: 25))
-                            
+                            Spacer()
+                            Text("\(user.score) points")
+                                .font(.custom("CabinCondensed-Bold", size: 25))
                         }
                         
                         .confetti(isPresented: $onAppearConffetti, animation: SPConfettiAnimation.fullWidthToDown, particles: [.circle], duration: 10)

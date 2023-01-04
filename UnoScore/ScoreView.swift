@@ -19,7 +19,6 @@ struct ScoreView: View {
     @State var index = 0
     @State var score = 0
     
-    @AppStorage("USERS_KEY") var savedUsers = "[0, 1]"
    
     @State var showingEndGameAlert = false
     @State var endGameIsPossible = false
@@ -31,8 +30,54 @@ struct ScoreView: View {
     @Binding var showModalPodium: Bool
     var body: some View {
         List {
-           // let users = viewModel.users.sorted(by: { $0.score < $1.score})
-            
+           
+            if endGameIsPossible {
+                Section {
+                    
+                    
+                    Button {
+                       // showModalPodium = true
+                        showingEndGameAlert = true
+                       
+                    }label: {
+                        HStack {
+                            Spacer()
+                            Text("Terminer la partie")
+                            Spacer()
+                        }
+                    }
+                    .listRowBackground(Color("monJaune"))
+                    .font(.custom("CabinCondensed-Bold", size: 25))
+                    
+                    
+                }
+                
+                .alert("\(viewModel.users.first?.name ?? "Erreur") gagne cette partie!", isPresented: $showingEndGameAlert) {
+                    Button{
+                        
+                        showModalPodium = true
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            presentationMode.wrappedValue.dismiss()
+                        }
+                            
+                        }label: {
+                            Text("Oui")
+                        }
+                    Button(role: .cancel) { }label: {
+                        Text("Non")
+                    }
+                    } message: {
+                        Text("Voulez-vous voir le classement ?")
+                            .font(.custom("CabinCondensed-Bold", size: 20))
+                    }
+                    .confetti(isPresented: $showingEndGameAlert, animation: SPConfettiAnimation.fullWidthToDown, particles: [.circle], duration: 10)
+                    .confettiParticle(\.colors, [UIColor(Color("monVert")),
+                                                 UIColor(Color("rougeUno")),
+                                                 UIColor(Color("monJaune")),
+                                                 UIColor(Color("monBleu"))])
+                    
+            }
             ForEach(viewModel.users) { user in
                 let index = viewModel.users.firstIndex(of: user)
                 if let index = index {
@@ -80,14 +125,24 @@ struct ScoreView: View {
                         }
                         .onChange(of: viewModel.users) { newValue in
                             if viewModel.users.last!.score >= 500 {
-                                endGameIsPossible = true
+                                withAnimation {
+                                    endGameIsPossible = true
+                                }
+                            } else {
+                                withAnimation {
+                                    endGameIsPossible = false
+                                }
                             }
                         }
+
                         if isDecreaseScore {
                             Button {
-                                isShowingModal = true
+                                self.index = index
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                    isShowingModal = true
+                                }
                             }label: {
-                                
+                                Image(systemName: "pencil.line")
                                 Text("Enlever des points")
                             }
                             .buttonStyle(.borderless)
@@ -98,7 +153,7 @@ struct ScoreView: View {
 
                     
                     .sheet(isPresented: $isShowingModal) {
-                        EditingModalView(viewModel: viewModel, userIndex: index, doneEditButton: $isDecreaseScore, isShowingModal: $isShowingModal)
+                        EditingModalView(viewModel: viewModel, userIndex: self.index, doneEditButton: $isDecreaseScore, isShowingModal: $isShowingModal)
                         
                     }
                     
@@ -111,56 +166,13 @@ struct ScoreView: View {
                 
                 
             }
-            if endGameIsPossible {
-                Section {
-                    
-                    
-                    Button {
-                       // showModalPodium = true
-                        showingEndGameAlert = true
-                        print(showModalPodium)
-                    }label: {
-                        HStack {
-                            Spacer()
-                            Text("Finir la partie")
-                            Spacer()
-                        }
-                    }
-                    .listRowBackground(Color("monJaune"))
-                    .font(.custom("CabinCondensed-Bold", size: 25))
-                    
-                    
-                }
-                
-                .alert("\(viewModel.users.first?.name ?? "Erreur") gagne cette partie!", isPresented: $showingEndGameAlert) {
-                    Button{
-                        print(showModalPodium)
-                        showModalPodium = true
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                            presentationMode.wrappedValue.dismiss()
-                        }
-                            
-                        }label: {
-                            Text("Oui")
-                        }
-                    Button(role: .cancel) { }label: {
-                        Text("Non")
-                    }
-                    } message: {
-                        Text("Voulez-vous voir le classement ?")
-                            .font(.custom("CabinCondensed-Bold", size: 20))
-                    }
-                    .confetti(isPresented: $showingEndGameAlert, animation: SPConfettiAnimation.fullWidthToDown, particles: [.circle], duration: 10)
-                    .confettiParticle(\.colors, [UIColor(Color("monVert")),
-                                                 UIColor(Color("rougeUno")),
-                                                 UIColor(Color("monJaune")),
-                                                 UIColor(Color("monBleu"))])
-                    
-            }
+            
+
        
            
         }
+        
+        
         .navigationTitle("Tableau de score")
         
         .onAppear {
@@ -180,14 +192,27 @@ struct ScoreView: View {
                     if isDecreaseScore == false {
                         HStack {
                             Text("Modifier score")
-                                Image(systemName: "slider.horizontal.2.gobackward")
+                            Image(systemName: "pencil.circle.fill")
                         }
                     } else {
-                        Text("Done")
+                        HStack {
+                            Text("Terminer")
+                            Image(systemName: "checkmark.circle.fill")
+                        }
                     }
                 }
             }
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button {
+                    presentationMode.wrappedValue.dismiss()
+                }label: {
+                    Text("Back")
+                        .foregroundColor(Color("monVert"))
+                        .padding(.leading, -20)
+                    
+                }
                 
+            }
         }
     }
 }

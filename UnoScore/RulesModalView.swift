@@ -72,7 +72,12 @@ struct RulesModalView: View {
                 }
                 Section {
                     if let url = URL(string: "https://jeu-uno.info/la-regle-du-jeu/") {
-                        Link("Plus de détails sur les règles UNO", destination: url)
+                        HStack {
+                            Link("Plus de détails sur les règles UNO", destination: url)
+                            Spacer()
+                            Image(systemName: "network")
+                                .foregroundColor(Color("monVert"))
+                        }
                     }
                    
                 }
