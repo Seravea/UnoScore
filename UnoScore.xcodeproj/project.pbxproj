@@ -22,7 +22,6 @@
 		1432D29928ACDC5900285E2E /* ModifyScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1432D29828ACDC5900285E2E /* ModifyScoreView.swift */; };
 		14AF29EA28C211B3000BCFF7 /* CardCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AF29E928C211B3000BCFF7 /* CardCellView.swift */; };
 		14D4B2C528F58EC50042B267 /* SPConfetti in Frameworks */ = {isa = PBXBuildFile; productRef = 14D4B2C428F58EC50042B267 /* SPConfetti */; };
-		14D4B2CB28F97CBE0042B267 /* SwiftConfettiView in Frameworks */ = {isa = PBXBuildFile; productRef = 14D4B2CA28F97CBE0042B267 /* SwiftConfettiView */; };
 		14D4B2E72907CE390042B267 /* cabin-condensed.bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14D4B2E62907CE390042B267 /* cabin-condensed.bold.ttf */; };
 		14D4B2E82907D0290042B267 /* CabinCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14183C6028EC45F300B23AB3 /* CabinCondensed-Bold.ttf */; };
 		14D4B2EA290935C80042B267 /* PodiumModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4B2E9290935C80042B267 /* PodiumModalView.swift */; };
@@ -60,7 +59,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				14D4B2C528F58EC50042B267 /* SPConfetti in Frameworks */,
-				14D4B2CB28F97CBE0042B267 /* SwiftConfettiView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,7 +142,6 @@
 			name = UnoScore;
 			packageProductDependencies = (
 				14D4B2C428F58EC50042B267 /* SPConfetti */,
-				14D4B2CA28F97CBE0042B267 /* SwiftConfettiView */,
 			);
 			productName = UnoScore;
 			productReference = 1432D27D28AB7A4B00285E2E /* UnoScore.app */;
@@ -176,7 +173,6 @@
 			mainGroup = 1432D27428AB7A4B00285E2E;
 			packageReferences = (
 				14D4B2C328F58EC50042B267 /* XCRemoteSwiftPackageReference "SPConfetti" */,
-				14D4B2C928F97CBE0042B267 /* XCRemoteSwiftPackageReference "SwiftConfettiView" */,
 			);
 			productRefGroup = 1432D27E28AB7A4B00285E2E /* Products */;
 			projectDirPath = "";
@@ -355,7 +351,6 @@
 				INFOPLIST_FILE = UnoScore/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -388,7 +383,6 @@
 				INFOPLIST_FILE = UnoScore/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -439,14 +433,6 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		14D4B2C928F97CBE0042B267 /* XCRemoteSwiftPackageReference "SwiftConfettiView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/theoriginalbit/SwiftConfettiView.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.2.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -454,11 +440,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 14D4B2C328F58EC50042B267 /* XCRemoteSwiftPackageReference "SPConfetti" */;
 			productName = SPConfetti;
-		};
-		14D4B2CA28F97CBE0042B267 /* SwiftConfettiView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 14D4B2C928F97CBE0042B267 /* XCRemoteSwiftPackageReference "SwiftConfettiView" */;
-			productName = SwiftConfettiView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

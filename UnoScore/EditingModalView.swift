@@ -52,7 +52,7 @@ struct EditingModalView: View {
                     .font(.custom("CabinCondensed-Bold", size: 20))
                     
                     
-                } 
+                }
                 HStack {
                     TextField("Points à enlever", value: $editValue, formatter: formatter)
                         .keyboardType(.numberPad)
@@ -83,7 +83,9 @@ struct EditingModalView: View {
                             }
                 }
                 .padding()
-                
+                .onDisappear {
+                    viewModel.sortedArrayByScore(users: viewModel.users)
+                }
                 Spacer()
                 
             }
